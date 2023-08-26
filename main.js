@@ -7,9 +7,19 @@ const submit = document.getElementById('submit');
 const listDiv = document.getElementById('list');
 let deleteListElements;
 const priceDiv = document.getElementById('prezzo-totale')
+const controlList = localStorage.getItem('list')
 let totalPrice = 0;
 
 let list = [];
+
+if(controlList){
+    list = JSON.parse(controlList)
+    displayList();
+    deleteEvent();
+} else {
+    priceDiv.innerHTML=''
+    listDiv.innerHTML=`<div>nessun elemento in lista</div>`;
+}
 
 function displayList(){
     if (list.length>0){
@@ -34,7 +44,7 @@ function displayList(){
             </div>`
         };
         priceDiv.innerHTML=`${totalPrice}$`
-        deleteListElements = document.querySelectorAll('.delete');      
+        deleteListElements = document.querySelectorAll('.delete');   
     } else {
         priceDiv.innerHTML=''
         listDiv.innerHTML=`<div>nessun elemento in lista</div>`;
@@ -49,6 +59,12 @@ function deleteEvent(){
             displayList();
             deleteEvent();
             console.log(list)
+            if(list.length>0){
+                localStorage.setItem('list', JSON.stringify(list))
+            } else {
+                localStorage.setItem('list', [])
+            }
+            
         })
     };
 };
@@ -67,4 +83,5 @@ submit.addEventListener('click', function(){
     displayList();
     deleteEvent();
     console.log(list)
+    localStorage.setItem('list', JSON.stringify(list))
 });
