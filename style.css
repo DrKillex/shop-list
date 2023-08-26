@@ -1,0 +1,22 @@
+.card{
+    max-width: 50%;
+    margin: 0 auto;
+    background-color: rgba(118, 168, 168, 0.397);
+    border: 5px solid rgba(118, 168, 168, 1);
+    margin-bottom: 10px;
+}
+.delete{
+    border: 5px solid darkcyan;
+    border-radius: 20px;
+    background-color: rgba(0, 255, 255, 0.493);
+}
+#submit{
+    border: 5px solid darkcyan;
+    border-radius: 20px;
+    background-color: rgba(0, 255, 255, 0.493);
+}
+input{
+    background-color: rgba(118, 168, 168, 0.397);
+    border: 5px solid rgba(118, 168, 168, 1);
+    border-radius: 20px;
+}
